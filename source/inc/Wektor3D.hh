@@ -4,7 +4,10 @@
 #include "Wektor.hh"
 #include <iostream>
 
-class Wektor3D: public Wektor<double,3>{
+class Wektor3D: 
+public Wektor<double,3>
+
+{
 
 };
 
