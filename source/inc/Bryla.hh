@@ -8,11 +8,12 @@ class Bryla{
     
 protected:
     Wektor3D srodek_bryly;
-    Macierz_obrotu Orientacja;
+    Macierz_obrotu polozenie_wzgledem plaszczyzn;
 public:
     
-    void przesun_o_wektor(Wektor3D Wektor);
-    void obroc(double kat);
+    void obracanie(double kat);
+    void przesun_bryle(Wektor3D Wektor);
+    
     
 };
 
