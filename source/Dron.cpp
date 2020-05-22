@@ -8,13 +8,13 @@ using drawNS::APIGnuPlot3D;
 
 
 
-int Dron_podwodny::rysowanie_drona(std::shared_ptr<drawNS::Draw3DAPI> api, Wektor3D srodek, int wymiar_x, int wymiar_y, int wymiar_z){
+int Dron_podwodny::rysowanie_drona(std::shared_ptr<drawNS::Draw3DAPI> api, Wektor<double,3> srodek, int wymiar_x, int wymiar_y, int wymiar_z){
     
     double x=wymiar_x/2;
     double y=wymiar_y/2;
     double z=wymiar_z/2;
 
-    Wektor3D tab_wierzch[8];
+    Wektor<double,3> tab_wierzch[8];
 
         tab_wierzch[0][0]=srodek[0]-x;
         tab_wierzch[0][1]=srodek[1]-y;

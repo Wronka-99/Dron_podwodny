@@ -3,22 +3,25 @@ CPPFLAGS= -c -g -Wall -pedantic -std=c++17
 __start__: dron
 	./dron
 
-dron: obj/Dr3D_gnuplot_api.o obj/main.o obj/Dron.o 
-	g++ -o obj/dron main.o obj/Dr3D_gnuplot_api.o obj/Dron.o -lpthread
+dron: Dr3D_gnuplot_api.o main.o Dron.o Prostopadloscian.o
+	g++ -o dron main.o Dr3D_gnuplot_api.o Dron.o Prostopadloscian.o -lpthread
 
-obj/main.o: src/main.cpp inc/Dr3D_gnuplot_api.hh inc/Wektor.hh inc/Macierz.hh src/Dron.cpp inc/Dron.hh
-	g++ ${CPPFLAGS} -o obj/main.o src/main.cpp
+main.o: main.cpp Dr3D_gnuplot_api.hh Wektor.hh Macierz.hh Dron.cpp Dron.hh
+	g++ ${CPPFLAGS} -o main.o main.cpp
 
-obj/Dron.o: inc/Bryla.hh inc/Prostopadloscian.hh inc/Dron.hh src/Dron.cpp inc/Dr3D_gnuplot_api.hh
-	g++ ${CPPFLAGS} -o obj/Dron.o src/Dron.cpp
+Dron.o: Bryla.hh Prostopadloscian.hh Dron.hh Dron.cpp Dr3D_gnuplot_api.hh
+	g++ ${CPPFLAGS} -o Dron.o Dron.cpp
 
-obj/Dr3D_gnuplot_api.o: src/Dr3D_gnuplot_api.cpp inc/Dr3D_gnuplot_api.hh
-	g++ ${CPPFLAGS} -o obj/Dr3D_gnuplot_api.o src/Dr3D_gnuplot_api.cpp
+Prostopadloscian.o: Bryla.hh Prostopadloscian.hh Dron.hh Dron.cpp Dr3D_gnuplot_api.hh
+	g++ ${CPPFLAGS} -o Prostopadloscian.o Prostopadloscian.cpp
 
-inc/Dr3D_gnuplot_api.hh: inc/Draw3D_api_interface.hh
-	touch inc/Dr3D_gnuplot_api.hh
+Dr3D_gnuplot_api.o: Dr3D_gnuplot_api.cpp Dr3D_gnuplot_api.hh
+	g++ ${CPPFLAGS} -o Dr3D_gnuplot_api.o Dr3D_gnuplot_api.cpp
+
+Dr3D_gnuplot_api.hh: Draw3D_api_interface.hh
+	touch Dr3D_gnuplot_api.hh
 
 clear:
-	rm -f dron obj/main.o obj/Dr3D_gnuplot_api.o obj/Dron.o
+	rm -f dron main.o Dr3D_gnuplot_api.o Dron.o
 
 

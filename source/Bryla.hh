@@ -1,17 +1,18 @@
 #ifndef BRYLA_HH
 #define BRYLA_HH
-#include "Wektor3D.hh"
+#include "Wektor.hh"
 #include "Dr3D_gnuplot_api.hh"
 #include "Macierz_obrotu.hh"
+#include <vector>
 
 class Bryla{
     
 protected:
-    Wektor3D srodek_bryly;
+    Wektor<double,3> srodek_bryly;
     Macierz_obrotu Orientacja;
 public:
     
-    void przesun_o_wektor(Wektor3D Wektor);
+    void przesun_o_wektor(Wektor<double,3> Wektor);
     void obroc(double kat);
     
 };
