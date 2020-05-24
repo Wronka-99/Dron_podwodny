@@ -6,7 +6,7 @@ __start__: dron
 dron: Dr3D_gnuplot_api.o main.o Dron.o Prostopadloscian.o
 	g++ -o dron main.o Dr3D_gnuplot_api.o Dron.o Prostopadloscian.o -lpthread
 
-main.o: main.cpp Dr3D_gnuplot_api.hh Wektor.hh Macierz.hh Dron.cpp Dron.hh
+main.o: main.cpp Dr3D_gnuplot_api.hh Wektor.hh Macierz.hh Dron.cpp Dron.hh Dno.hh 
 	g++ ${CPPFLAGS} -o main.o main.cpp
 
 Dron.o: Bryla.hh Prostopadloscian.hh Dron.hh Dron.cpp Dr3D_gnuplot_api.hh

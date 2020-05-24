@@ -12,12 +12,15 @@ class Macierz_obrotu: public Macierz<double,3>
 
 
     public:
+    
 
+    
     Macierz_obrotu obracanie(double stopnie,char os_obrotu){
 
+            
         
     double kat = M_PI*stopnie/180;
-
+        
             switch (os_obrotu){
 
                 

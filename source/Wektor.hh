@@ -19,7 +19,9 @@ class Wektor {
   //Mnożenie skalarnie
   Typ operator * (const Wektor<Typ,Wymiar> & W2) const; 
   Wektor<Typ,Wymiar> operator * (double liczba) const; 
+  Wektor<Typ,Wymiar> operator * (int liczba) const;
   Wektor<Typ,Wymiar> operator / (double) const; 
+  
 
   //Przeciążenia operatorów
   Typ  operator [] (int ind) const { return tab[ind]; }
@@ -82,6 +84,18 @@ Wektor<Typ,Wymiar> Wektor<Typ,Wymiar>::operator * (double  liczba) const {
     return wynik;
 }
 
+//Mnozy wektor przez liczbe
+template <class Typ, int Wymiar>
+Wektor<Typ,Wymiar> Wektor<Typ,Wymiar>::operator * (int  liczba) const {
+    Wektor<Typ,Wymiar> wynik;
+
+    for(int i=0; i<Wymiar; ++i) {
+        wynik[i] = tab[i] * liczba;
+    }
+    return wynik;
+}
+
+
 //Dzieli wektor przez liczbe
 template <class Typ, int Wymiar>
 Wektor<Typ,Wymiar> Wektor<Typ,Wymiar>::operator / (double  liczba) const {
@@ -107,5 +121,7 @@ Typ Wektor<Typ,Wymiar>::operator * (const Wektor<Typ,Wymiar> & W2) const {
     }
     return wynik;
 }
+
+
 
 #endif

@@ -36,7 +36,7 @@ template<class Typ, int Wymiar>
 Macierz<Typ,Wymiar>::Macierz(){
   for(int i=0;i<Wymiar; ++i){
     for(int j=0;j<Wymiar;++j){
-      tab[i][j]=0;
+      tab[i][j]=1;
     }
   }
 }
