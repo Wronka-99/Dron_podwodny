@@ -53,7 +53,10 @@ int Dron_podwodny::rysowanie_drona(std::shared_ptr<drawNS::Draw3DAPI> api, Wekto
 	drawNS::Point3D(tab_wierzch[0][0],tab_wierzch[0][1],tab_wierzch[0][2]), drawNS::Point3D(tab_wierzch[1][0],tab_wierzch[1][1],tab_wierzch[1][2]), drawNS::Point3D(tab_wierzch[2][0],tab_wierzch[2][1],tab_wierzch[2][2]), drawNS::Point3D(tab_wierzch[3][0],tab_wierzch[3][1],tab_wierzch[3][2])
       },{
 	drawNS::Point3D(tab_wierzch[4][0],tab_wierzch[4][1],tab_wierzch[4][2]), drawNS::Point3D(tab_wierzch[5][0],tab_wierzch[5][1],tab_wierzch[5][2]), drawNS::Point3D(tab_wierzch[6][0],tab_wierzch[6][1],tab_wierzch[6][2]), drawNS::Point3D(tab_wierzch[7][0],tab_wierzch[7][1],tab_wierzch[7][2])       
-	  }},"blue");//rysuje niebieski prostopadloscian
+	  }},"blue");
+ /**
+ * Rysuje niebieski prostopadloscian
+ */
     }
 
 
