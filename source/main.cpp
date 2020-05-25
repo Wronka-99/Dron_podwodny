@@ -65,7 +65,9 @@ int main()
     id=dron.rysuj_prostopadloscian(api);
     wait4key();
 
-
+/**
+ * Tutaj znajduje sie petla do sterowania dronem
+ */
     while(dzialanie)
     {
         cout<<"Wybierz co chcesz zrobic:"<<endl;
@@ -79,6 +81,10 @@ int main()
           {
 
             case 'O':
+            
+                    /**
+                     * Tutaj znajduje sie case do obracania dronem
+                     */
                     cout<<"Podaj os i wartosc kata alfa w stopniach."<<endl<<endl;
                     cin>>os;
                     cin>>kat;
@@ -98,6 +104,9 @@ int main()
 
             case 'P':
 
+                  /**
+                  * Tutaj znajduje sie case do przesuwania dronem
+                  */
                   cout << "Podaj wektor przesuniecia x, y, z." << endl << endl;
 
                   cin>>przesuniecie[0];
