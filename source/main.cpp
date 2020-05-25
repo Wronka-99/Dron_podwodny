@@ -35,10 +35,10 @@ int main()
     double glebokosc;
     int id=0;
     char znak;
-    int kat=0;
+    double kat=0;
     char os;
     bool dzialanie=1;
-
+    double zmienna=0;
     
     std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-10,10,-10,10,-10,10,0)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
     
@@ -82,9 +82,17 @@ int main()
                     cout<<"Podaj os i wartosc kata alfa w stopniach."<<endl<<endl;
                     cin>>os;
                     cin>>kat;
+                    zmienna=kat/100.0;
+                    kat=0.0;
+            
+                  for(int a=0; a<100;a++)
+                  {
                     dron.zmaz_prostopadloscian(api, id);
                     obracanie=dron.obroc(kat, os);
                     id=dron.rysuj_prostopadloscian(api);
+                    usleep(20000);
+                    kat=zmienna+kat;
+                  }
 
             break;
 
