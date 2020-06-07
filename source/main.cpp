@@ -48,12 +48,15 @@ int main()
     char os;
     bool dzialanie=1;
     double zmienna=0;
+<<<<<<< HEAD
 
     double promienie;
     double srodki;
     Wektor<double,3> srodki_wek;
 
     std::vector<Dron_podwodny*> kolekcja_dronow; 
+=======
+>>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
     
     std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-10,10,-10,10,-10,10,0)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
     
@@ -84,6 +87,7 @@ int main()
     //kolekcja_dronow.push_back(new Dron_podwodny(tablica_dronow[indeks_dronow]));
     //id1=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
 
+<<<<<<< HEAD
     
    // wait4key();
 
@@ -93,6 +97,11 @@ int main()
     //id2=sruba_prawa.rysuj_graniastoslup(api);
     //wait4key();
 
+=======
+/**
+ * Tutaj znajduje sie petla do sterowania dronem
+ */
+>>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
     while(dzialanie)
     {
         cout<<"Wybierz co chcesz zrobic:"<<endl;
@@ -107,11 +116,16 @@ int main()
           {
 
             case 'O':
+            
+                    /**
+                     * Tutaj znajduje sie case do obracania dronem
+                     */
                     cout<<"Podaj os i wartosc kata alfa w stopniach."<<endl<<endl;
                     cin>>os;
                     cin>>kat;
                     zmienna=kat/100.0;
                     kat=0.0;
+<<<<<<< HEAD
 
                     cout<<"Wybierz numer drona, ktorym chcesz sie poruszac, liczone od 0."<<endl<<endl;
                     cin>>indeks_dronow;
@@ -132,6 +146,14 @@ int main()
                    // id2=sruba_prawa.rysuj_graniastoslup(api);
                     
                     
+=======
+            
+                  for(int a=0; a<100;a++)
+                  {
+                    dron.zmaz_prostopadloscian(api, id);
+                    obracanie=dron.obroc(kat, os);
+                    id=dron.rysuj_prostopadloscian(api);
+>>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
                     usleep(20000);
                     kat=zmienna+kat;
                   }
@@ -140,6 +162,7 @@ int main()
 
             case 'P':
 
+<<<<<<< HEAD
                   
 
                   cout<<"Wybierz numer drona, ktorym chcesz sie poruszac, liczone od 0."<<endl<<endl;
@@ -148,6 +171,11 @@ int main()
                    //id1=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
                    //kolekcja_dronow[indeks_dronow]->zmaz_prostopadloscian(api, id1);
 
+=======
+                  /**
+                  * Tutaj znajduje sie case do przesuwania dronem
+                  */
+>>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
                   cout << "Podaj wektor przesuniecia x, y, z." << endl << endl;
 
                   cin>>przesuniecie[0];
