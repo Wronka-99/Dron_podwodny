@@ -15,6 +15,10 @@ int Prostopadloscian::stworz_prostopadloscian(Wektor<double,3> srodek, double x,
      x=x/2;
      y=y/2;
      z=z/2;
+
+     wymiar_x=x;
+     wymiar_y=y;
+     wymiar_z=z;
     
     srodek_bryly=srodek;
     
@@ -57,22 +61,39 @@ int Prostopadloscian::stworz_prostopadloscian(Wektor<double,3> srodek, double x,
     
 }
 
+double Prostopadloscian::promien()
+{
 
+        double x=wymiar_x/2;
+        double y=wymiar_y/2;
+        double z=wymiar_z/2;
+
+        double promien=pow(x,2)+pow(y,2)+pow(z,2);
+        promien=sqrt(promien);
+
+
+}
 int Prostopadloscian::rysuj_prostopadloscian(std::shared_ptr<drawNS::Draw3DAPI> api)
 {
         Wektor<double,3> tablica_wierzcholkow_tmp[8];
-        Wektor<double,3> przesuniecie;
+        
+        
         int c;
 
+
+
                 
-                
+                srodek_bryly=Orientacja*srodek_bryly;
                 
                 for(int a=0; a<8; a++)
                 {
                         tablica_wierzcholkow_tmp[a]=srodek_bryly+Orientacja*tablica_wierzcholkow[a];
-
+                        
                 }
 
+
+                lewa_sruba=tablica_wierzcholkow_tmp[0];
+                prawa_sruba=tablica_wierzcholkow_tmp[3];
                 
                 c=api->draw_polyhedron(vector<vector<Point3D> > {{
                 drawNS::Point3D(tablica_wierzcholkow_tmp[0][0],tablica_wierzcholkow_tmp[0][1],tablica_wierzcholkow_tmp[0][2]), drawNS::Point3D(tablica_wierzcholkow_tmp[1][0],tablica_wierzcholkow_tmp[1][1],tablica_wierzcholkow_tmp[1][2]), drawNS::Point3D(tablica_wierzcholkow_tmp[2][0],tablica_wierzcholkow_tmp[2][1],tablica_wierzcholkow_tmp[2][2]), drawNS::Point3D(tablica_wierzcholkow_tmp[3][0],tablica_wierzcholkow_tmp[3][1],tablica_wierzcholkow_tmp[3][2])

@@ -21,7 +21,7 @@ class Wektor {
   Wektor<Typ,Wymiar> operator * (double liczba) const; 
   Wektor<Typ,Wymiar> operator * (int liczba) const;
   Wektor<Typ,Wymiar> operator / (double) const; 
-  
+  double dlugoscWektora()const;
 
   //Przeciążenia operatorów
   Typ  operator [] (int ind) const { return tab[ind]; }
@@ -122,6 +122,15 @@ Typ Wektor<Typ,Wymiar>::operator * (const Wektor<Typ,Wymiar> & W2) const {
     return wynik;
 }
 
-
+template<class Typ,int Wymiar>
+double Wektor<Typ,Wymiar>::dlugoscWektora()const//funkcja liczaca dlugosc wektora
+{
+    double Wynik = 0;
+    for (int i = 0; i < Wymiar; i++)
+    {
+        Wynik += pow(tab[i], 2);
+    }
+    return sqrt(Wynik);
+}
 
 #endif
