@@ -34,6 +34,7 @@ int main()
     cout << "Poczatek rysowania " << endl << endl;
     Wektor<double,3> srodek;
     Wektor<double,3> przesuniecie;
+    Wektor<double,3> przesuniecie_pom;
     double wymia_x;
     double wymia_y;
     double wymia_z;
@@ -48,15 +49,12 @@ int main()
     char os;
     bool dzialanie=1;
     double zmienna=0;
-<<<<<<< HEAD
 
     double promienie;
     double srodki;
     Wektor<double,3> srodki_wek;
 
     std::vector<Dron_podwodny*> kolekcja_dronow; 
-=======
->>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
     
     std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-10,10,-10,10,-10,10,0)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
     
@@ -87,7 +85,6 @@ int main()
     //kolekcja_dronow.push_back(new Dron_podwodny(tablica_dronow[indeks_dronow]));
     //id1=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
 
-<<<<<<< HEAD
     
    // wait4key();
 
@@ -97,11 +94,6 @@ int main()
     //id2=sruba_prawa.rysuj_graniastoslup(api);
     //wait4key();
 
-=======
-/**
- * Tutaj znajduje sie petla do sterowania dronem
- */
->>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
     while(dzialanie)
     {
         cout<<"Wybierz co chcesz zrobic:"<<endl;
@@ -116,16 +108,11 @@ int main()
           {
 
             case 'O':
-            
-                    /**
-                     * Tutaj znajduje sie case do obracania dronem
-                     */
                     cout<<"Podaj os i wartosc kata alfa w stopniach."<<endl<<endl;
                     cin>>os;
                     cin>>kat;
                     zmienna=kat/100.0;
                     kat=0.0;
-<<<<<<< HEAD
 
                     cout<<"Wybierz numer drona, ktorym chcesz sie poruszac, liczone od 0."<<endl<<endl;
                     cin>>indeks_dronow;
@@ -146,14 +133,6 @@ int main()
                    // id2=sruba_prawa.rysuj_graniastoslup(api);
                     
                     
-=======
-            
-                  for(int a=0; a<100;a++)
-                  {
-                    dron.zmaz_prostopadloscian(api, id);
-                    obracanie=dron.obroc(kat, os);
-                    id=dron.rysuj_prostopadloscian(api);
->>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
                     usleep(20000);
                     kat=zmienna+kat;
                   }
@@ -162,7 +141,6 @@ int main()
 
             case 'P':
 
-<<<<<<< HEAD
                   
 
                   cout<<"Wybierz numer drona, ktorym chcesz sie poruszac, liczone od 0."<<endl<<endl;
@@ -171,11 +149,6 @@ int main()
                    //id1=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
                    //kolekcja_dronow[indeks_dronow]->zmaz_prostopadloscian(api, id1);
 
-=======
-                  /**
-                  * Tutaj znajduje sie case do przesuwania dronem
-                  */
->>>>>>> 04cb1b4a784603344e89c4842ea6e2acf2402e6b
                   cout << "Podaj wektor przesuniecia x, y, z." << endl << endl;
 
                   cin>>przesuniecie[0];
@@ -183,8 +156,9 @@ int main()
                   cin>>przesuniecie[2];
 
                   przesuniecie=przesuniecie/100.0;
-
-                  
+                  przesuniecie_pom[0]=-przesuniecie[0];
+                  przesuniecie_pom[1]=-przesuniecie[1];
+                  przesuniecie_pom[2]=-przesuniecie[2];
                   
 
                   
@@ -210,7 +184,10 @@ int main()
                           
                             if(0.1>abs(promienie-srodki))
                             {
-                              cout<<"Kolizja. Juz sie nie poplywa tymi dwoma dronami."<<endl<<endl;
+                              cout<<"Kolizja dronow."<<endl<<endl;
+                              kolekcja_dronow[indeks_dronow]->zmaz_prostopadloscian(api, tablica_id[indeks_dronow]);
+                              kolekcja_dronow[indeks_dronow]->przesun_o_wektor(przesuniecie_pom);
+                              tablica_id[indeks_dronow]=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
                               a=100;
                             }
 
@@ -220,7 +197,11 @@ int main()
                     
                     if(0.1>kolizja_tafla)
                     {
-                           cout<<"Kolizja. Wyplynales na powierzchnie."<<endl<<endl;
+                           cout<<"Wyplynales na powierzchnie."<<endl<<endl;
+                           kolekcja_dronow[indeks_dronow]->zmaz_prostopadloscian(api, tablica_id[indeks_dronow]);
+                           kolekcja_dronow[indeks_dronow]->przesun_o_wektor(przesuniecie_pom);
+                           tablica_id[indeks_dronow]=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
+                           
                            a=100; 
 
                     }
@@ -229,13 +210,16 @@ int main()
                     
                     if(0.1>kolizja_dno)
                     {
-                           cout<<"Kolizja. Znalazles sie na dnie."<<endl<<endl;
+                           cout<<"Kolizja z dnem."<<endl<<endl;
+                           kolekcja_dronow[indeks_dronow]->zmaz_prostopadloscian(api, tablica_id[indeks_dronow]);
+                           kolekcja_dronow[indeks_dronow]->przesun_o_wektor(przesuniecie_pom);
+                           tablica_id[indeks_dronow]=kolekcja_dronow[indeks_dronow]->rysuj_prostopadloscian(api);
                            a=100; 
 
                     }
 
 
-                    id2=sruba_prawa.rysuj_graniastoslup(api);
+                    //id2=sruba_prawa.rysuj_graniastoslup(api);
 
                    
                     usleep(20000);
